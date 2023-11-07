@@ -5,7 +5,18 @@
 ** fs_open_file
 */
 
+#include <fcntl.h>
+#include "my.h"
+
 int fs_open_file(char const *filepath)
 {
-    return 0;
+    int opened;
+
+    opened = open(filepath, O_RDONLY);
+    if (opened == -1) {
+        my_putstr("FAILURE\n");
+    } else {
+        my_putstr("SUCCESS\n");
+    }
+    return opened;
 }
