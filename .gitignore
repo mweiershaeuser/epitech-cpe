@@ -8,7 +8,7 @@
 
 coding-style-reports.log
 
-unit_tests.sh
+coverage
 **/unit_tests
 **/*.gcda
 **/*.gcno
