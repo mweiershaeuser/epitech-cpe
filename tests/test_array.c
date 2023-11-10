@@ -8,3 +8,10 @@ Test(setting_up_bs, array_1_1, .init = cr_redirect_stdout)
     array_1d_print_chars(arr);
     cr_assert_stdout_eq_str("a\nb\nc\nd\n");
 }
+
+Test(setting_up_bs, array_2_1, .init = cr_redirect_stdout)
+{
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    array_1d_print_ints(arr, 5);
+    cr_assert_stdout_eq_str("1\n2\n3\n4\n5\n");
+}

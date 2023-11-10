@@ -14,4 +14,5 @@ void fs_cat_x_bytes(char const *filepath, int x);
 void fs_print_first_line(char const *filepath);
 int fs_get_number_from_first_line(char const *filepath);
 void array_1d_print_chars(char const *arr);
+void array_1d_print_ints(int const *arr, int size);
 #endif
