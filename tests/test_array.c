@@ -37,3 +37,17 @@ Test(setting_up_bs, array_4_1)
     cr_assert_eq(sum, 30);
     free(arr);
 }
+
+Test(setting_up_bs, array_5_1)
+{
+    const int **arr;
+    int arr1[5] = { 1, 2, 3, 4, 5 };
+    int arr2[5] = { 1, 2, 3, 4, 5 };
+
+    arr = malloc(sizeof(int *) * 2);
+    arr[0] = arr1;
+    arr[1] = arr2;
+    int sum = array_2d_how_many(arr, 2, 5, 3);
+    cr_assert_eq(sum, 2);
+    free(arr);
+}
