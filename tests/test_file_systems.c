@@ -65,3 +65,9 @@ Test(setting_up_bs, file_systems_5_1, .init = cr_redirect_stdout)
     fs_print_first_line("../tests/test2.txt");
     cr_assert_stdout_eq_str("Lorem ipsum dolor sit amet,");
 }
+
+Test(setting_up_bs, file_systems_6_1)
+{
+    int nbr = fs_get_number_from_first_line("../tests/test3.txt");
+    cr_assert_eq(nbr, 0);
+}
