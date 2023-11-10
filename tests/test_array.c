@@ -15,3 +15,10 @@ Test(setting_up_bs, array_2_1, .init = cr_redirect_stdout)
     array_1d_print_ints(arr, 5);
     cr_assert_stdout_eq_str("1\n2\n3\n4\n5\n");
 }
+
+Test(setting_up_bs, array_3_1)
+{
+    int arr[5] = { 1, 2, 3, 4, 5 };
+    int sum = array_1d_sum(arr, 5);
+    cr_assert_eq(sum, 15);
+}
