@@ -8,4 +8,5 @@
 #ifndef SETTING_UP_BS_H
     #define SETTING_UP_BS_H
 int fs_open_file(char const *filepath);
+void fs_understand_return_of_read(int fd, char *buffer, int size);
 #endif
