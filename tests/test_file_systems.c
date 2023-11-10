@@ -47,3 +47,9 @@ Test(setting_up_bs, file_systems_2_4, .init = cr_redirect_stdout)
     fs_understand_return_of_read(fd, buffer, 13);
     cr_assert_stdout_eq_str("read completed the entire buffer\n");
 }
+
+Test(setting_up_bs, file_systems_3_1, .init = cr_redirect_stdout)
+{
+    fs_cat_500_bytes("../tests/test2.txt");
+    cr_assert_stdout_eq_str("Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et e");
+}
