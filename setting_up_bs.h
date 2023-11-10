@@ -19,4 +19,6 @@ int array_1d_sum(int const *arr, int size);
 int array_2d_sum(int const **arr, int nb_rows, int nb_cols);
 int array_2d_how_many(int const **arr, int nb_rows, int nb_cols, int number);
 char *mem_alloc(char const *a, char const *b);
+char **mem_alloc_2d_array(int nb_rows, int nb_cols);
+char **mem_dup_2d_array(char **arr, int nb_rows, int nb_cols);
 #endif
