@@ -21,7 +21,7 @@ void fs_understand_return_of_read(int fd, char *buffer, int size)
         return;
     }
     if (res < size) {
-        my_putstr("read didn’t complete the entire buffer\n");
+        my_putstr("read didn't complete the entire buffer\n");
         return;
     }
     if (res == size) {
