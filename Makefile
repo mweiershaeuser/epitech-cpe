@@ -7,8 +7,9 @@
 
 MAIN	=	main.c
 
-SRC		=	setting_up.c \
-			put_error.c
+SRC		=	put_error.c \
+			my_getposnbr.c \
+			handle_input.c
 
 OBJ		=	$(SRC:.c=.o)
 
