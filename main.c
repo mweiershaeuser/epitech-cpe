@@ -7,9 +7,11 @@
 
 #include "include/setting_up.h"
 
-int main(void)
+int main(int argc, char **argv)
 {
-    setting_up();
-    setting_up2();
+    if (argc <= 1 || argc > 3) {
+        put_error("Incorrect Arguments!");
+        return 84;
+    }
     return 0;
 }

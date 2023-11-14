@@ -8,7 +8,7 @@
 MAIN	=	main.c
 
 SRC		=	setting_up.c \
-			setting_up2.c
+			put_error.c
 
 OBJ		=	$(SRC:.c=.o)
 

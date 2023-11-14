@@ -2,12 +2,13 @@
 ** EPITECH PROJECT, 2023
 ** setting_up
 ** File description:
-** setting_up
+** put_error
 */
 
+#include "unistd.h"
 #include "include/my.h"
 
-void setting_up2(void)
+void put_error(char *msg)
 {
-    my_putstr("World!");
+    write(2, msg, my_strlen(msg));
 }

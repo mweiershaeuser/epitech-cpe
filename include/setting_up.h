@@ -7,6 +7,5 @@
 
 #ifndef SETTING_UP_H
     #define SETTING_UP_H
-void setting_up(void);
-void setting_up2(void);
+void put_error(char *msg);
 #endif
