@@ -5,6 +5,7 @@
 ** main
 */
 
+#include <stdlib.h>
 #include "include/setting_up.h"
 
 int main(int argc, char **argv)
@@ -13,5 +14,6 @@ int main(int argc, char **argv)
 
     if (board_str == 0)
         return 84;
+    free(board_str);
     return 0;
 }
