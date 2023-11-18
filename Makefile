@@ -9,7 +9,9 @@ MAIN	=	main.c
 
 SRC		=	put_error.c \
 			my_getposnbr.c \
-			handle_input.c
+			handle_input.c \
+			convert_str_to_board.c \
+			print_board.c
 
 OBJ		=	$(SRC:.c=.o)
 
