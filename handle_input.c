@@ -6,12 +6,96 @@
 */
 
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 #include "include/my.h"
 #include "include/setting_up.h"
 
-static char *handle_input_file(char *filename)
+static int open_file(char const *filepath)
 {
-    return 0;
+    int fd = open(filepath, O_RDONLY);
+
+    if (fd == -1) {
+        put_error("Error opening file.\n");
+        return -1;
+    }
+    return fd;
+}
+
+static int get_number_from_first_line(int fd)
+{
+    char buffer[11];
+    char *current = buffer;
+    int res = 1;
+
+    while (res != 0 && res != -1) {
+        res = read(fd, current, 1);
+        if (*current == '\n' || *current == '\0') {
+            break;
+        }
+        current++;
+    }
+    *current = '\0';
+    return my_getposnbr(buffer);
+}
+
+static int get_width_of_board(int fd)
+{
+    int width = 0;
+    char c;
+    int res = 1;
+
+    while (res != 0 && res != -1) {
+        res = read(fd, &c, 1);
+        if (c == '\n' || c == '\0') {
+            break;
+        }
+        width++;
+    }
+    return width;
+}
+
+static void skip_first_line(int fd)
+{
+    char c;
+    int res = 1;
+
+    while (res != 0 && res != -1) {
+        res = read(fd, &c, 1);
+        if (c == '\n' || c == '\0') {
+            break;
+        }
+    }
+}
+
+static char *get_board_from_file(int fd, int height, int width)
+{
+    char *board_str;
+    int length = height * (width + 1);
+
+    board_str = malloc(sizeof(char) * (length + 1));
+    read(fd, board_str, length);
+    board_str[length] = '\0';
+    return board_str;
+}
+
+static char *handle_input_file(char const *filepath)
+{
+    char *board_str;
+    int fd = open_file(filepath);
+    int height = 0;
+    int width = 0;
+
+    if (fd == -1)
+        return 0;
+    height = get_number_from_first_line(fd);
+    width = get_width_of_board(fd);
+    close(fd);
+    fd = open_file(filepath);
+    skip_first_line(fd);
+    board_str = get_board_from_file(fd, height, width);
+    close(fd);
+    return board_str;
 }
 
 static char *handle_input_generator(char *size, char *pattern)
