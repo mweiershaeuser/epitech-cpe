@@ -17,6 +17,8 @@ typedef struct square {
     int y_pos;
     int size;
 } square;
+int setting_up(int argc, char **argv);
+void free_board(board *b);
 void put_error(char *msg);
 int my_getposnbr(char const *str);
 char *handle_input(int argc, char **argv);

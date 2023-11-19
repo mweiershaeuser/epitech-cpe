@@ -7,7 +7,9 @@
 
 MAIN	=	main.c
 
-SRC		=	put_error.c \
+SRC		=	setting_up.c \
+			free_board.c \
+			put_error.c \
 			my_getposnbr.c \
 			handle_input.c \
 			convert_str_to_board.c \

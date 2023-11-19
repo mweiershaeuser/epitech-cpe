@@ -16,4 +16,6 @@ Test(setting_up, print_board, .init = cr_redirect_stdout)
     b->map[2] = ".o..";
     print_board(b);
     cr_assert_stdout_eq_str(".o..\n.o..\n.o..\n");
+    free(b->map);
+    free(b);
 }

@@ -1,4 +1,5 @@
 #include <criterion/criterion.h>
+#include <stdlib.h>
 #include "../include/setting_up.h"
 
 Test(setting_up, convert_str_to_board)
@@ -9,4 +10,5 @@ Test(setting_up, convert_str_to_board)
     cr_assert_str_eq(b->map[0], ".o..");
     cr_assert_str_eq(b->map[1], ".o..");
     cr_assert_str_eq(b->map[2], ".o..");
+    free_board(b);
 }
