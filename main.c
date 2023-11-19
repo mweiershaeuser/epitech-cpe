@@ -27,6 +27,7 @@ int main(int argc, char **argv)
         return 84;
     b = convert_str_to_board(board_str);
     s = get_largest_square(b);
+    put_square(b, s);
     print_board(b);
     free(board_str);
     free(s);

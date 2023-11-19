@@ -6,7 +6,6 @@
 */
 
 #include <stdlib.h>
-#include "include/my.h"
 #include "include/setting_up.h"
 
 static int get_size(square *s, board *b, int radius)

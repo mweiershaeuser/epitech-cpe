@@ -22,5 +22,6 @@ int my_getposnbr(char const *str);
 char *handle_input(int argc, char **argv);
 board *convert_str_to_board(char *str);
 square *get_largest_square(board *b);
+void put_square(board *b, square *s);
 void print_board(board *b);
 #endif

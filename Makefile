@@ -12,6 +12,7 @@ SRC		=	put_error.c \
 			handle_input.c \
 			convert_str_to_board.c \
 			find_square.c \
+			put_square.c \
 			print_board.c
 
 OBJ		=	$(SRC:.c=.o)
