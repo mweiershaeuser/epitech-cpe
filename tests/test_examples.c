@@ -106,3 +106,12 @@ Test(setting_up, intermediate_map_97_21_with_obstacles_75pc, .init = cr_redirect
     cr_assert_stdout_eq_str(solved);
     free(solved);
 }
+
+Test(setting_up, intermediate_map_100_100, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_100_100.txt", 100 * 101);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_100_100.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
