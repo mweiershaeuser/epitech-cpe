@@ -12,9 +12,15 @@ typedef struct board {
     int width;
     int height;
 } board;
+typedef struct square {
+    int x_pos;
+    int y_pos;
+    int size;
+} square;
 void put_error(char *msg);
 int my_getposnbr(char const *str);
 char *handle_input(int argc, char **argv);
 board *convert_str_to_board(char *str);
+square *get_largest_square(board *b);
 void print_board(board *b);
 #endif

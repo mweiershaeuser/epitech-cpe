@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2023
 ** setting_up
 ** File description:
-** handling_input
+** handle_input
 */
 
 #include <stdlib.h>
