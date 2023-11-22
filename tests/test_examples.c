@@ -232,3 +232,111 @@ Test(setting_up, intermediate_map_empty_corners, .init = cr_redirect_stdout)
     cr_assert_stdout_eq_str(solved);
     free(solved);
 }
+
+Test(setting_up, intermediate_map_one_column_with_obstacles_25pc, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_column_with_obstacles_25pc.txt", 100 * 2);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_column_with_obstacles_25pc.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_column_with_obstacles_50pc, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_column_with_obstacles_50pc.txt", 100 * 2);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_column_with_obstacles_50pc.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_column_with_obstacles_75pc, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_column_with_obstacles_75pc.txt", 100 * 2);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_column_with_obstacles_75pc.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_empty_box, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_empty_box.txt", 1 * 2);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_empty_box.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_empty_column, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_empty_column.txt", 100 * 2);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_empty_column.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_empty_line, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_empty_line.txt", 1 * 101);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_empty_line.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_filled_box, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_filled_box.txt", 1 * 2);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_filled_box.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_filled_column, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_filled_column.txt", 100 * 2);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_filled_column.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_filled_line, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_filled_line.txt", 1 * 101);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_filled_line.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_line_with_obstacles_25pc, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_line_with_obstacles_25pc.txt", 1 * 101);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_line_with_obstacles_25pc.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_line_with_obstacles_50pc, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_line_with_obstacles_50pc.txt", 1 * 101);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_line_with_obstacles_50pc.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
+
+Test(setting_up, intermediate_map_one_line_with_obstacles_75pc, .init = cr_redirect_stdout)
+{
+    char *solved = get_solved("../tests/example_files/solved/intermediate_map_one_line_with_obstacles_75pc.txt", 1 * 101);
+    char *argv[2] = { "setting_up", "../tests/example_files/maps/intermediate_map_one_line_with_obstacles_75pc.txt" };
+    setting_up(2, argv);
+    cr_assert_stdout_eq_str(solved);
+    free(solved);
+}
