@@ -98,6 +98,23 @@ static char *handle_input_file(char const *filepath)
     return board_str;
 }
 
+static int validate_gen_input(int size_n, char *pattern)
+{
+    int pattern_len = my_strlen(pattern);
+
+    if (size_n <= 0) {
+        put_error("The given size is invalid!\n");
+        return 0;
+    }
+    for (int i = 0; i < pattern_len; i++) {
+        if (!(pattern[i] == '.' || pattern[i] == 'o')) {
+            put_error("The given pattern is invalid!\n");
+            return 0;
+        }
+    }
+    return 1;
+}
+
 static char *handle_input_generator(char *size, char *pattern)
 {
     char *gen_board;
@@ -107,6 +124,8 @@ static char *handle_input_generator(char *size, char *pattern)
     int i = 0;
     int j = 0;
 
+    if (!validate_gen_input(size_n, pattern))
+        return 0;
     gen_board = malloc(sizeof(char) * (size_n + 1) * size_n + 1);
     for (i = 0; i < size_n; i++) {
         for (j = 0; j < size_n; j++) {
