@@ -34,6 +34,13 @@ Test(setting_up, handle_input_file_error, .init = cr_redirect_stderr)
     cr_assert_stderr_eq_str("Error opening file.\n");
 }
 
+Test(setting_up, handle_input_file_error_number, .init = cr_redirect_stderr)
+{
+    char *argv[2] = { "setting_up", "../tests/example_files/errors/missing_number.txt" };
+    cr_assert_eq(handle_input(2, argv), 0);
+    cr_assert_stderr_eq_str("Invalid file: First line must contain a number > 0.\n");
+}
+
 Test(setting_up, handle_input_generator)
 {
     char *argv[3] = { "setting_up", "4", "..o." };

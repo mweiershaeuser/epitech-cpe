@@ -89,6 +89,10 @@ static char *handle_input_file(char const *filepath)
     if (fd == -1)
         return 0;
     height = get_number_from_first_line(fd);
+    if (height <= 0) {
+        put_error("Invalid file: First line must contain a number > 0.\n");
+        return 0;
+    }
     width = get_width_of_board(fd);
     close(fd);
     fd = open_file(filepath);
