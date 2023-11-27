@@ -5,17 +5,20 @@
 ## Makefile
 ##
 
-MAIN	=	main.c
+MAIN		=	main.c
 
-SRC		=	organized.c
+SRC			=	organized.c
 
-OBJ		=	$(SRC:.c=.o)
+OBJ			=	$(SRC:.c=.o)
 
-NAME	=	organized
+NAME		=	organized
 
-LIB		=	lib/libmy.a
+LIB			=	lib/libmy.a
 
-TESTS	=	unit_tests
+MODE		=	""
+LIBSHELL	=	shell$(MODE)
+
+TESTS		=	unit_tests
 
 .PHONY: all \
 	clean_lib clean_emacs clean_tests clean \
@@ -32,7 +35,7 @@ $(NAME): $(LIB)
 	gcc -o $(NAME) -Wall -Wextra \
 	$(MAIN) $(SRC) \
 	-I include \
-	-L lib -lmy -lshell
+	-L lib -lmy -l$(LIBSHELL)
 
 clean_lib:
 	cd lib/my && make clean
