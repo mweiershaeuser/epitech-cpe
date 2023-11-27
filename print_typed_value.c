@@ -7,25 +7,33 @@
 
 #include "bootstrap.h"
 #include "my.h"
+#include "organized_bs.h"
+
+static void print_player(player_t *p)
+{
+    my_putstr(p->name);
+    my_putstr(": lvl.");
+    my_put_nbr(p->lvl);
+}
 
 int print_typed_value(void *data, type_t type)
 {
     switch (type) {
         case INTEGER:
-            my_put_nbr(*((int *)data));
+            my_put_nbr(*((int *) data));
             break;
         case CHAR:
-            my_putchar(*((char *)data));
+            my_putchar(*((char *) data));
             break;
         case STRING:
-            my_putstr(((char *)data));
+            my_putstr(((char *) data));
             break;
         case PLAYER:
-            my_putstr(((player_t *)data)->name);
-            my_putstr(": lvl.");
-            my_put_nbr(((player_t *)data)->lvl);
+            print_player((player_t *) data);
             break;
         default:
+            put_error("Type could not be identified.\n");
+            return 84;
             break;
     }
     my_putchar('\n');

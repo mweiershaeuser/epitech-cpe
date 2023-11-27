@@ -30,3 +30,11 @@ Test(organized_bs, print_typed_value_player, .init = cr_redirect_stdout)
     print_typed_value(&p, PLAYER);
     cr_assert_stdout_eq_str("Hoppy: lvl.98\n");
 }
+
+Test(organized_bs, print_typed_value_error, .init = cr_redirect_stderr)
+{
+    int nb = 5;
+    int ret = print_typed_value(&nb, 10);
+    cr_assert_stderr_eq_str("Type could not be identified.\n");
+    cr_assert_eq(ret, 84);
+}
