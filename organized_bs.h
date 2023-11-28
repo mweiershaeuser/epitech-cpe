@@ -12,4 +12,5 @@
 void put_error(char *msg);
 int print_typed_value(void *data, type_t type);
 void push_to_list(linked_list_t **begin, void *data);
+void display_list(linked_list_t *begin, void (*disp_fct)());
 #endif
