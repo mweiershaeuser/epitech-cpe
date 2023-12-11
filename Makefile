@@ -7,7 +7,11 @@
 
 MAIN		=	main.c
 
-SRC			=	organized.c
+SRC			=	organized.c \
+				add.c \
+				del.c \
+				disp.c \
+				sort.c
 
 OBJ			=	$(SRC:.c=.o)
 
