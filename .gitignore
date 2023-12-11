@@ -2,8 +2,7 @@
 **/*.o
 **/*.a
 
-!**/libshell.a
-
+shell
 organized
 
 **/*~

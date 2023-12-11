@@ -5,7 +5,7 @@
 ** organized
 */
 
-#include "include/shell.h"
+#include "shell/shell.h"
 
 int add(void *data, char **args)
 {

@@ -15,8 +15,7 @@ NAME		=	organized
 
 LIB			=	lib/libmy.a
 
-MODE		=	""
-LIBSHELL	=	shell$(MODE)
+LIBSHELL	=	shell
 
 TESTS		=	unit_tests
 
@@ -35,7 +34,9 @@ $(NAME): $(LIB)
 	gcc -o $(NAME) -Wall -Wextra \
 	$(MAIN) $(SRC) \
 	-I include \
-	-L lib -lmy -l$(LIBSHELL)
+	-I shell \
+	-L lib -lmy \
+	-L shell -l$(LIBSHELL)
 
 clean_lib:
 	cd lib/my && make clean
