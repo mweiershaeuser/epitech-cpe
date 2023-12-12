@@ -2,8 +2,10 @@
 **/*.o
 **/*.a
 
-shell
 organized
+
+!**/libshell.a
+**/libshelldev.a
 
 **/*~
 **/#*#

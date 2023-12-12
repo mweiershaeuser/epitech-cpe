@@ -6,7 +6,7 @@
 */
 
 #include <stddef.h>
-#include "shell/shell.h"
+#include "include/shell.h"
 #include "include/organized.h"
 
 int organized(void)

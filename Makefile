@@ -17,9 +17,10 @@ OBJ			=	$(SRC:.c=.o)
 
 NAME		=	organized
 
-LIB			=	lib/libminiprintf.a
+LIB			=	lib/libmy.a
 
-LIBSHELL	=	shell
+MODE		=	""
+LIBSHELL	=	shell$(MODE)
 
 TESTS		=	unit_tests
 
@@ -32,18 +33,16 @@ TESTS		=	unit_tests
 all: $(NAME)
 
 $(LIB):
-	cd lib/mini_printf && make re
+	cd lib/my && make re
 
 $(NAME): $(LIB)
 	gcc -o $(NAME) -Wall -Wextra \
 	$(MAIN) $(SRC) \
 	-I include \
-	-I shell \
-	-L lib -lminiprintf \
-	-L shell -l$(LIBSHELL)
+	-L lib -lmy -l$(LIBSHELL)
 
 clean_lib:
-	cd lib/mini_printf && make clean
+	cd lib/my && make clean
 
 clean_emacs:
 	find . \( -name "*~" -or -name "#*#" \) -delete
@@ -56,7 +55,7 @@ clean: clean_emacs clean_lib
 	rm -f $(OBJ)
 
 fclean_lib:
-	cd lib/mini_printf && make fclean
+	cd lib/my && make fclean
 
 fclean: clean clean_tests fclean_lib
 	rm -f $(NAME)
@@ -69,7 +68,7 @@ $(TESTS): $(LIB)
 	gcc -o $(TESTS) -Wall -Wextra \
 	$(addprefix ../,$(SRC)) ../tests/*.c \
 	-I ../include \
-	-L ../lib -lminiprintf \
+	-L ../lib -lmy \
 	--coverage -lcriterion
 
 tests_run: $(TESTS)

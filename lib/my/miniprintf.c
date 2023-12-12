@@ -6,7 +6,7 @@
 */
 
 #include <stdarg.h>
-#include "my.h"
+#include "../../include/my.h"
 
 static int count_digits(int n)
 {

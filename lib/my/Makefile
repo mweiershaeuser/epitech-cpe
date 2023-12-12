@@ -1,16 +1,18 @@
 ##
 ## EPITECH PROJECT, 2023
-## Makefile libminiprintf
+## Makefile libmy
 ## File description:
-## Makefile for mini_printf
+## Makefile libmy
 ##
 
-NAME	=	"../libminiprintf.a"
+NAME	=	"../libmy.a"
 
 SRC		=	miniprintf.c \
 			my_put_nbr.c \
 			my_putchar.c \
 			my_putstr.c \
+			my_strcmp.c \
+			my_strcpy.c \
 			my_strlen.c
 
 OBJ = $(SRC:.c=.o)
@@ -22,7 +24,7 @@ all: $(NAME)
 $(NAME): compile build
 
 compile:
-	gcc -c $(SRC) -I. -I../../include
+	gcc -c $(SRC) -I../../include
 
 build:
 	ar rc $(NAME) $(OBJ)

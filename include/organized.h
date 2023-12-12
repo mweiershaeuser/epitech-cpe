@@ -7,6 +7,8 @@
 
 #ifndef ORGANIZED_H
     #define ORGANIZED_H
+    #define TYPES_SIZE 5
+
 typedef enum type {
     ACTUATOR,
     DEVICE,
@@ -14,7 +16,7 @@ typedef enum type {
     SENSOR,
     WIRE
 } type;
-/*
+
 static const char *TYPES[] = {
     "ACTUATOR",
     "DEVICE",
@@ -22,7 +24,7 @@ static const char *TYPES[] = {
     "SENSOR",
     "WIRE"
 };
-*/
+
 typedef struct material {
     int id;
     type type;

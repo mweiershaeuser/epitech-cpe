@@ -5,7 +5,7 @@
 ** my_put_nbr
 */
 
-#include "my.h"
+#include "../../include/my.h"
 
 int print_digit(int nb)
 {
