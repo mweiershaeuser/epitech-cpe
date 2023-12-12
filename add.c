@@ -18,10 +18,10 @@ static int get_highest_id(material *list)
         return 0;
     while (list->next != NULL) {
         if (list->id >= highest_number)
-            highest_number = list->id + 1;
+            highest_number = list->id;
         list = list->next;
     }
-    return highest_number;
+    return highest_number + 1;
 }
 
 static void extract_data(material *list, material **item, char **args)
@@ -48,5 +48,7 @@ int add(void *data, char **args)
         new_material->next = *list;
         *list = new_material;
     }
+    mini_printf("%s n°%d - \"%s\" added.\n", TYPES[new_material->type],
+        new_material->id, new_material->name);
     return 0;
 }
