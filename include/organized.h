@@ -27,10 +27,7 @@ typedef struct material {
     int id;
     type type;
     char *name;
+    struct material *next;
 } material;
-typedef struct node {
-    void *data;
-    struct node *next;
-} node;
 int organized(void);
 #endif

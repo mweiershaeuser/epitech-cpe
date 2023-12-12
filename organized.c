@@ -5,12 +5,13 @@
 ** organized
 */
 
+#include <stddef.h>
 #include "shell/shell.h"
+#include "include/organized.h"
 
 int organized(void)
 {
-    int nb = 1;
-    int *pt = &nb;
+    material *material = NULL;
 
-    return workshop_shell(pt);
+    return workshop_shell(&material);
 }
