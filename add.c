@@ -24,24 +24,24 @@ static int get_highest_id(material *list)
     return highest_number + 1;
 }
 
-static void extract_data(material *list, material **item, char **args)
+static void extract_data(material *list, material **item,
+    char *type, char *name)
 {
     (*item)->id = get_highest_id(list);
-    (*item)->name = malloc(sizeof(char) * my_strlen(args[1]) + 1);
-    my_strcpy((*item)->name, args[1]);
+    (*item)->name = malloc(sizeof(char) * my_strlen(name) + 1);
+    my_strcpy((*item)->name, name);
     for (int i = 0; i < TYPES_SIZE; i++) {
-        if (!my_strcmp(TYPES[i], args[0]))
+        if (!my_strcmp(TYPES[i], type))
             (*item)->type = i;
     }
 }
 
-int add(void *data, char **args)
+void add_single(material **list, char *type, char *name)
 {
-    material **list = (material **) data;
     material *new_material;
 
     new_material = malloc(sizeof(material));
-    extract_data(*list, &new_material, args);
+    extract_data(*list, &new_material, type, name);
     if (*list == NULL) {
         *list = new_material;
     } else {
@@ -50,5 +50,16 @@ int add(void *data, char **args)
     }
     mini_printf("%s n°%d - \"%s\" added.\n", TYPES[new_material->type],
         new_material->id, new_material->name);
+}
+
+int add(void *data, char **args)
+{
+    material **list = (material **) data;
+    int i = 0;
+
+    while (args[i] != 0) {
+        add_single(list, args[i], args[i + 1]);
+        i = i + 2;
+    }
     return 0;
 }
