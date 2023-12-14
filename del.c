@@ -49,6 +49,8 @@ int del(void *data, char **args)
         put_error("Error: del requires an argument!\n");
         return 84;
     }
+    if (*list == NULL)
+        return 0;
     while (args[i] != 0) {
         del_single(list, my_getposnbr(args[i]));
         i++;
