@@ -46,10 +46,8 @@ int del(void *data, char **args)
     int i = 0;
     int number = 0;
 
-    if (args[i] == 0) {
-        put_error("Error: del requires an argument!\n");
+    if (args[i] == 0)
         return 84;
-    }
     if (*list == NULL)
         return 0;
     while (args[i] != 0) {
