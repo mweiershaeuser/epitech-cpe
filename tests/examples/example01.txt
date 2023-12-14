@@ -3,5 +3,6 @@ disp
 del 1
 del 0
 disp
-add WIRE usb
+add SENSOR sensor
 disp
+exit
