@@ -16,7 +16,7 @@ static int get_highest_id(material *list)
 
     if (list == NULL)
         return 0;
-    while (list->next != NULL) {
+    while (list != NULL) {
         if (list->id >= highest_number)
             highest_number = list->id;
         list = list->next;
@@ -48,6 +48,7 @@ int add_single(material **list, char *type, char *name)
     int error = 0;
 
     new_material = malloc(sizeof(material));
+    new_material->next = NULL;
     error = extract_data(*list, &new_material, type, name);
     if (error != 0)
         return 84;
