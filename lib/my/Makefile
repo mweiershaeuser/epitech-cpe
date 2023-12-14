@@ -8,6 +8,7 @@
 NAME	=	"../libmy.a"
 
 SRC		=	miniprintf.c \
+			my_getposnbr.c \
 			my_put_nbr.c \
 			my_putchar.c \
 			my_putstr.c \
