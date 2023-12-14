@@ -24,24 +24,33 @@ static int get_highest_id(material *list)
     return highest_number + 1;
 }
 
-static void extract_data(material *list, material **item,
+static int extract_data(material *list, material **item,
     char *type, char *name)
 {
-    (*item)->id = get_highest_id(list);
-    (*item)->name = malloc(sizeof(char) * my_strlen(name) + 1);
-    my_strcpy((*item)->name, name);
+    (*item)->type = -1;
     for (int i = 0; i < TYPES_SIZE; i++) {
         if (!my_strcmp(TYPES[i], type))
             (*item)->type = i;
     }
+    if ((*item)->type == -1) {
+        put_error("Invalid Type!\n");
+        return 84;
+    }
+    (*item)->id = get_highest_id(list);
+    (*item)->name = malloc(sizeof(char) * my_strlen(name) + 1);
+    my_strcpy((*item)->name, name);
+    return 0;
 }
 
-void add_single(material **list, char *type, char *name)
+int add_single(material **list, char *type, char *name)
 {
     material *new_material;
+    int error = 0;
 
     new_material = malloc(sizeof(material));
-    extract_data(*list, &new_material, type, name);
+    error = extract_data(*list, &new_material, type, name);
+    if (error != 0)
+        return 84;
     if (*list == NULL) {
         *list = new_material;
     } else {
@@ -50,15 +59,27 @@ void add_single(material **list, char *type, char *name)
     }
     mini_printf("%s n°%d - \"%s\" added.\n", TYPES[new_material->type],
         new_material->id, new_material->name);
+    return 0;
 }
 
 int add(void *data, char **args)
 {
     material **list = (material **) data;
     int i = 0;
+    int error = 0;
 
+    if (args[0] == 0) {
+        put_error("Error: add requires arguments!\n");
+        return 84;
+    }
     while (args[i] != 0) {
-        add_single(list, args[i], args[i + 1]);
+        if (args[i + 1] == 0) {
+            put_error("Invalid amount of arguments!\n");
+            return 84;
+        }
+        error = add_single(list, args[i], args[i + 1]);
+        if (error != 0)
+            return 84;
         i = i + 2;
     }
     return 0;
