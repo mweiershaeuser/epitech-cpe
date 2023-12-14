@@ -8,6 +8,7 @@
 MAIN		=	main.c
 
 SRC			=	organized.c \
+				put_error.c \
 				add.c \
 				del.c \
 				disp.c \

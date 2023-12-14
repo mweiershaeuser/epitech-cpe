@@ -32,4 +32,5 @@ typedef struct material {
     struct material *next;
 } material;
 int organized(void);
+void put_error(char *msg);
 #endif

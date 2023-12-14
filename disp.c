@@ -20,7 +20,12 @@ int disp(void *data, char **args)
 {
     material *list = *((material **) data);
 
-    (void) args;
+    if (args[0] != 0) {
+        put_error("Error: no arguments allowed for disp!\n");
+        return 84;
+    }
+    if (list == NULL)
+        return 0;
     while (list->next != NULL) {
         print_material(list);
         list = list->next;
