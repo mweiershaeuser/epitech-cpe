@@ -13,5 +13,6 @@ int organized(void)
 {
     material *material = NULL;
 
+    (void) TYPES;
     return workshop_shell(&material);
 }

@@ -9,5 +9,6 @@
 
 int main(void)
 {
+    (void) TYPES;
     return organized();
 }
