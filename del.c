@@ -44,6 +44,7 @@ int del(void *data, char **args)
 {
     material **list = (material **) data;
     int i = 0;
+    int number = 0;
 
     if (args[i] == 0) {
         put_error("Error: del requires an argument!\n");
@@ -52,7 +53,12 @@ int del(void *data, char **args)
     if (*list == NULL)
         return 0;
     while (args[i] != 0) {
-        del_single(list, my_getposnbr(args[i]));
+        number = my_getposnbr(args[i]);
+        if (number < 0) {
+            put_error("Invalid ID!\n");
+            return 84;
+        }
+        del_single(list, number);
         i++;
     }
     return 0;
