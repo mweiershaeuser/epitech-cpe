@@ -32,7 +32,7 @@ static int extract_data(material *list, material **item,
         if (!my_strcmp(TYPES[i], type))
             (*item)->type = i;
     }
-    if ((*item)->type == -1) {
+    if (((int) (*item)->type) == -1) {
         put_error("Invalid Type!\n");
         return 84;
     }

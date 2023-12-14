@@ -11,5 +11,6 @@ int sort(void *data, char **args)
 {
     (void) data;
     (void) args;
+    (void) TYPES;
     return 0;
 }
