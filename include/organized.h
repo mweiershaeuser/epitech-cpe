@@ -17,13 +17,7 @@ typedef enum type {
     WIRE
 } type;
 
-static const char *TYPES[] = {
-    "ACTUATOR",
-    "DEVICE",
-    "PROCESSOR",
-    "SENSOR",
-    "WIRE"
-};
+extern const char *TYPES[];
 
 typedef struct material {
     int id;

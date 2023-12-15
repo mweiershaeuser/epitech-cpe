@@ -9,10 +9,17 @@
 #include "include/shell.h"
 #include "include/organized.h"
 
+const char *TYPES[] = {
+    "ACTUATOR",
+    "DEVICE",
+    "PROCESSOR",
+    "SENSOR",
+    "WIRE"
+};
+
 int organized(void)
 {
     material *material = NULL;
 
-    (void) TYPES;
     return workshop_shell(&material);
 }

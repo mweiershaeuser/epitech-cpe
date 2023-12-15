@@ -69,7 +69,7 @@ $(TESTS): $(LIB)
 	gcc -o $(TESTS) -Wall -Wextra \
 	$(addprefix ../,$(SRC)) ../tests/*.c \
 	-I ../include \
-	-L ../lib -lmy \
+	-L ../lib -lmy -l$(LIBSHELL) \
 	--coverage -lcriterion
 
 tests_run: $(TESTS)
