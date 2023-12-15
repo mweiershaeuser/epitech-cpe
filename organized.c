@@ -17,6 +17,13 @@ const char *TYPES[] = {
     "WIRE"
 };
 
+const char *SORT_TAGS[] = {
+    "TYPE",
+    "NAME",
+    "ID"
+};
+const char *SORT_RE_FLAG = "-r";
+
 int organized(void)
 {
     material *material = NULL;

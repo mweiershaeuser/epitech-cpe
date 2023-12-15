@@ -12,7 +12,8 @@ SRC			=	organized.c \
 				add.c \
 				del.c \
 				disp.c \
-				sort.c
+				sort.c \
+				cmp.c
 
 OBJ			=	$(SRC:.c=.o)
 

@@ -9,7 +9,9 @@
 
 int sort(void *data, char **args)
 {
-    (void) data;
+    material **list = (material **) data;
+
+    (void) list;
     (void) args;
     return 0;
 }
