@@ -27,11 +27,23 @@ typedef struct material {
     struct material *next;
 } material;
 
+typedef enum sort_tag {
+    TYPE,
+    NAME,
+    ID
+} sort_tag;
+
 extern const char *SORT_TAGS[];
 extern const char *SORT_RE_FLAG;
+
+typedef struct sort_params {
+    sort_tag tag;
+    int reverse;
+    struct sort_params *next;
+} sort_params;
 
 int organized(void);
 void put_error(char *msg);
 int cmp_numeric(int a, int b, int re);
-int cmp_alphabet(char *a, char *b, int re);
+int cmp_alphabet(const char *a, const char *b, int re);
 #endif

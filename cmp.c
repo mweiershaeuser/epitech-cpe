@@ -18,7 +18,7 @@ int cmp_numeric(int a, int b, int re)
     }
 }
 
-int cmp_alphabet(char *a, char *b, int re)
+int cmp_alphabet(const char *a, const char *b, int re)
 {
     int i = 0;
     int cmp;
