@@ -9,4 +9,5 @@
 
 void ht_dump(hashtable_t *ht)
 {
+    (void) ht;
 }

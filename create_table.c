@@ -9,5 +9,7 @@
 
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 {
+    (void) hash;
+    (void) len;
     return 0;
 }

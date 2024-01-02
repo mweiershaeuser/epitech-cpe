@@ -9,5 +9,8 @@
 
 int ht_insert(hashtable_t *ht, char *key, char *value)
 {
+    (void) ht;
+    (void) key;
+    (void) value;
     return 0;
 }
