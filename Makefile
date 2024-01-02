@@ -5,7 +5,13 @@
 ## Makefile
 ##
 
-SRC			=	hash.c
+SRC			=	hash.c \
+				create_table.c \
+				delete_table.c \
+				dump.c \
+				insert.c \
+				delete.c \
+				search.c
 
 OBJ			=	$(SRC:.c=.o)
 
