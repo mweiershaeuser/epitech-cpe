@@ -7,7 +7,13 @@
 
 int hash(char *key, int len)
 {
-    (void) key;
+    unsigned long long int hash = 5381;
+    int i = 0;
+
     (void) len;
-    return 0;
+    while (key[i] != '\0') {
+        hash = hash * 33 + key[i];
+        i++;
+    }
+    return hash % 2147483647;
 }
