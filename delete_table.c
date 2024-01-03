@@ -6,8 +6,38 @@
 */
 
 #include "hashtable.h"
+#include <stddef.h>
+#include <stdlib.h>
+
+void free_entry(entry *current)
+{
+    entry *temp = NULL;
+
+    while (current != NULL) {
+        temp = current;
+        current = current->next;
+        free(temp->value);
+        free(temp);
+    }
+}
+
+void free_table(entry *table, int size)
+{
+    for (int i = 0; i < size; ++i) {
+        free_entry(table[i].next);
+        table[i].next = NULL;
+    }
+}
 
 void delete_hashtable(hashtable_t *ht)
 {
-    (void) ht;
+    if (ht == NULL) {
+        return;
+    }
+    if (ht->table != NULL) {
+        free_table(ht->table, ht->size);
+        free(ht->table);
+        ht->table = NULL;
+    }
+    free(ht);
 }
