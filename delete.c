@@ -5,7 +5,7 @@
 ** delete.c
 */
 
-#include "hashtable.h"
+#include "include/hashtable.h"
 
 int ht_delete(hashtable_t *ht, char *key)
 {

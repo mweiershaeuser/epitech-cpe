@@ -5,27 +5,28 @@
 ** create.c
 */
 
-#include "hashtable.h"
 #include <stdlib.h>
+#include "include/my.h"
+#include "include/hashtable.h"
 
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 {
-    hashtable_t *table = (hashtable_t *)malloc(sizeof(hashtable_t));
+    hashtable_t *ht;
 
-    if (table == NULL) {
-        return NULL;
+    if (len <= 0) {
+        my_put_error("Invalid input: length has to be strictly positive!\n");
+        return (hashtable_t *) 84;
     }
-    table->size = len;
-    table->table = (entry *)malloc(len * sizeof(entry));
-    if (table->table == NULL) {
-        free(table);
-        return NULL;
+    if (!hash) {
+        my_put_error("Invalid input: no hash function given!\n");
+        return (hashtable_t *) 84;
     }
+    ht = malloc(sizeof(hashtable_t));
+    ht->size = len;
+    ht->hash = hash;
+    ht->table = malloc(sizeof(entry *) * len);
     for (int i = 0; i < len; ++i) {
-        table->table[i].hash = -1;
-        table->table[i].value = NULL;
-        table->table[i].next = NULL;
+        (ht->table)[i] = NULL;
     }
-    table->hash = hash;
-    return table;
+    return ht;
 }

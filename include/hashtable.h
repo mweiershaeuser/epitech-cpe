@@ -17,7 +17,7 @@ typedef struct entry {
 typedef struct hashtable_s {
     int size;
     int (*hash)(char *, int);
-    entry *table;
+    entry **table;
 } hashtable_t;
 
 int hash(char *key, int len);

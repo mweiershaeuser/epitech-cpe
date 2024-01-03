@@ -5,7 +5,7 @@
 ** insert.c
 */
 
-#include "hashtable.h"
+#include "include/hashtable.h"
 
 int ht_insert(hashtable_t *ht, char *key, char *value)
 {
