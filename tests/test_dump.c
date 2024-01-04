@@ -27,4 +27,5 @@ Test(secured, dump_error02, .init = cr_redirect_stderr)
     ht->table = NULL;
     ht_dump(ht);
     cr_assert_stderr_eq_str("Hash table is empty or invalid.\n");
+    free(ht);
 }
