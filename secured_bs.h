@@ -11,4 +11,6 @@
     #define SECURED_BS_H
 entry_t **create_address_book(int len);
 entry_t *create_address(const char *name, const char *phone_number);
+void add_address(entry_t **address_book, int len,
+    const char *name, const char *phone_number);
 #endif
