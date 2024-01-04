@@ -10,7 +10,7 @@
 #include "include/my.h"
 #include "include/hashtable.h"
 
-void free_entry(entry *current)
+static void free_entry(entry *current)
 {
     entry *temp = NULL;
 
@@ -22,7 +22,7 @@ void free_entry(entry *current)
     }
 }
 
-void free_table(entry **table, int size)
+static void free_table(entry **table, int size)
 {
     for (int i = 0; i < size; ++i) {
         free_entry(table[i]);

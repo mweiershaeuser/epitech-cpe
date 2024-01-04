@@ -8,18 +8,7 @@
 #include <stdlib.h>
 #include "include/my.h"
 #include "include/hashtable.h"
-
-static entry *find_entry(hashtable_t *ht, int hash, int index)
-{
-    entry *current = ht->table[index];
-
-    while (current != NULL) {
-        if (current->hash == hash)
-            break;
-        current = current->next;
-    }
-    return current;
-}
+#include "include/secured.h"
 
 static entry *create_entry(hashtable_t *ht, char *key, char *value)
 {

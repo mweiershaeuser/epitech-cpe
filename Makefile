@@ -11,7 +11,8 @@ SRC			=	hash.c \
 				dump.c \
 				insert.c \
 				delete.c \
-				search.c
+				search.c \
+				find_entry.c
 
 OBJ			=	$(SRC:.c=.o)
 
