@@ -14,15 +14,14 @@ void ht_dump(hashtable_t *ht)
     entry *current;
 
     if (ht == NULL || ht->table == NULL) {
-        mini_printf("Hash table is empty or invalid.\n");
+        my_put_error("Hash table is empty or invalid.\n");
         return;
     }
-    mini_printf("[0]:\n");
     for (int i = 0; i < ht->size; ++i) {
         mini_printf("[%d]:\n", i);
         current = ht->table[i];
         while (current != NULL) {
-            mini_printf("%s\n", current->value);
+            mini_printf("> %d - %s\n", current->hash, current->value);
             current = current->next;
         }
     }
