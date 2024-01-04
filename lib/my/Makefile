@@ -12,6 +12,7 @@ SRC		=	miniprintf.c \
 			my_put_nbr.c \
 			my_putchar.c \
 			my_putstr.c \
+			my_strcpy.c \
 			my_strlen.c
 
 OBJ = $(SRC:.c=.o)
