@@ -5,9 +5,13 @@
 ** dump.c
 */
 
+#include <stddef.h>
 #include "include/hashtable.h"
 
 void ht_dump(hashtable_t *ht)
 {
-    (void) ht;
+    if (ht == NULL || ht->table == NULL) {
+        my_put_error("Hash table is empty or invalid.\n");
+        return 84;
+    }
 }
