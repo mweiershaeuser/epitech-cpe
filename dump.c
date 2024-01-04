@@ -5,8 +5,8 @@
 ** dump.c
 */
 
-#include "include/hashtable.h"
 #include <stddef.h>
+#include "include/hashtable.h"
 
 void ht_dump(hashtable_t *ht)
 {
