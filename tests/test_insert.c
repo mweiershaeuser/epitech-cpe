@@ -1,5 +1,4 @@
 #include <criterion/criterion.h>
-#include <criterion/redirect.h>
 #include "../include/hashtable.h"
 
 Test(secured, insert_single_new_entry)
