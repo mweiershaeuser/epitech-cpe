@@ -5,7 +5,6 @@
 ** add_address
 */
 
-#include <stdlib.h>
 #include "my.h"
 #include "bootstrap.h"
 #include "secured_bs.h"

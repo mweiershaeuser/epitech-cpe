@@ -15,4 +15,5 @@ void add_address(entry_t **address_book, int len,
     const char *name, const char *phone_number);
 void execute_on_address_book(entry_t **address_book,
     int len, void (*execute) (entry_t *));
+void delete_address_book(entry_t **address_book, int len);
 #endif
