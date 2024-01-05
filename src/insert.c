@@ -6,9 +6,9 @@
 */
 
 #include <stdlib.h>
-#include "include/my.h"
-#include "include/hashtable.h"
-#include "include/secured.h"
+#include "../include/my.h"
+#include "../include/hashtable.h"
+#include "../include/secured.h"
 
 static entry *create_entry(hashtable_t *ht, char *key, char *value)
 {

@@ -5,8 +5,8 @@
 ** search.c
 */
 
-#include "include/hashtable.h"
-#include "include/secured.h"
+#include "../include/hashtable.h"
+#include "../include/secured.h"
 
 char *ht_search(hashtable_t *ht, char *key)
 {

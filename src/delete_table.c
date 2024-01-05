@@ -7,8 +7,8 @@
 
 #include <stddef.h>
 #include <stdlib.h>
-#include "include/my.h"
-#include "include/hashtable.h"
+#include "../include/my.h"
+#include "../include/hashtable.h"
 
 static void free_entry(entry *current)
 {

@@ -6,8 +6,8 @@
 */
 
 #include <stddef.h>
-#include "include/hashtable.h"
-#include "include/my.h"
+#include "../include/hashtable.h"
+#include "../include/my.h"
 
 void ht_dump(hashtable_t *ht)
 {

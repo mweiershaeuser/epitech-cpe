@@ -6,8 +6,8 @@
 */
 
 #include <stdlib.h>
-#include "include/my.h"
-#include "include/hashtable.h"
+#include "../include/my.h"
+#include "../include/hashtable.h"
 
 hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 {

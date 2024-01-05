@@ -6,7 +6,7 @@
 */
 
 #include <stddef.h>
-#include "include/hashtable.h"
+#include "../include/hashtable.h"
 
 entry *find_entry(hashtable_t *ht, int hash, int index)
 {

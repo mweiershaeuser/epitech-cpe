@@ -7,8 +7,8 @@
 
 #include <unistd.h>
 #include <stdlib.h>
-#include "include/hashtable.h"
-#include "include/my.h"
+#include "../include/hashtable.h"
+#include "../include/my.h"
 
 static int delete_entry(hashtable_t *ht,
     entry *prev, entry *current, int index)
