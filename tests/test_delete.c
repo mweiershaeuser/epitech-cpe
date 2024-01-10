@@ -1,5 +1,6 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
+#include <stdlib.h>
 #include "../include/hashtable.h"
 
 Test(secured, delete_single_entry)
@@ -49,5 +50,34 @@ Test(secured, delete_not_found, .init = cr_redirect_stderr)
     hashtable_t *ht = new_hashtable(&hash, 30);
     ht_delete(ht, "ananas");
     cr_assert_stderr_eq_str("Error: Key wasn't found in hashtable.\n");
+    delete_hashtable(ht);
+}
+
+Test(secured, delete_error01)
+{
+    int return_value;
+
+    return_value = ht_delete(NULL, "Test");
+    cr_assert_eq(return_value, 84);
+}
+
+Test(secured, delete_error02)
+{
+    hashtable_t *ht = malloc(sizeof(hashtable_t));
+    int return_value;
+
+    ht->table = NULL;
+    return_value = ht_delete(ht, "Test");
+    cr_assert_eq(return_value, 84);
+    free(ht);
+}
+
+Test(secured, delete_error03)
+{
+    hashtable_t *ht = new_hashtable(&hash, 30);
+    int return_value;
+
+    return_value = ht_delete(ht, NULL);
+    cr_assert_eq(return_value, 84);
     delete_hashtable(ht);
 }

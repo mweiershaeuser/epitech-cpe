@@ -31,6 +31,10 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     int hash;
     int index;
 
+    if (!ht || !(ht->table) || !key || !value) {
+        my_put_error("Invalid input: Insertion impossible!\n");
+        return 84;
+    }
     hash = ht->hash(key, ht->size);
     index = hash % ht->size;
     entry = find_entry(ht, hash, index);

@@ -5,15 +5,23 @@
 ** search.c
 */
 
+#include "../include/my.h"
 #include "../include/hashtable.h"
 #include "../include/secured.h"
 
 char *ht_search(hashtable_t *ht, char *key)
 {
-    int hash = ht->hash(key, ht->size);
-    int index = hash % ht->size;
-    entry *entry = find_entry(ht, hash, index);
+    int hash;
+    int index;
+    entry *entry;
 
+    if (!ht || !(ht->table) || !key) {
+        my_put_error("Invalid input: Search impossible!\n");
+        return (char *) 84;
+    }
+    hash = ht->hash(key, ht->size);
+    index = hash % ht->size;
+    entry = find_entry(ht, hash, index);
     if (entry) {
         return entry->value;
     } else {

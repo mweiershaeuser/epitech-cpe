@@ -25,15 +25,20 @@ static int delete_entry(hashtable_t *ht,
 
 int ht_delete(hashtable_t *ht, char *key)
 {
-    int hash = ht->hash(key, ht->size);
-    int index = hash % ht->size;
-    entry *prev = NULL;
-    entry *current = ht->table[index];
+    int hash;
+    int index;
+    entry *prev;
+    entry *current;
 
+    if (!ht || !(ht->table) || !key)
+        return 84;
+    hash = ht->hash(key, ht->size);
+    index = hash % ht->size;
+    prev = NULL;
+    current = ht->table[index];
     while (current != NULL) {
-        if (current->hash == hash) {
+        if (current->hash == hash)
             return delete_entry(ht, prev, current, index);
-        }
         prev = current;
         current = current->next;
     }
