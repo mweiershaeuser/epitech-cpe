@@ -31,7 +31,7 @@ Test(secured, search_error01, .init = cr_redirect_stderr)
 
     return_value = ht_search(NULL, "Test");
     cr_assert_stderr_eq_str("Invalid input: Search impossible!\n");
-    cr_assert_eq(return_value, 84);
+    cr_assert_eq(return_value, NULL);
 }
 
 Test(secured, search_error02, .init = cr_redirect_stderr)
@@ -42,7 +42,7 @@ Test(secured, search_error02, .init = cr_redirect_stderr)
     ht->table = NULL;
     return_value = ht_search(ht, "Test");
     cr_assert_stderr_eq_str("Invalid input: Search impossible!\n");
-    cr_assert_eq(return_value, 84);
+    cr_assert_eq(return_value, NULL);
     free(ht);
 }
 
@@ -53,6 +53,6 @@ Test(secured, search_error03, .init = cr_redirect_stderr)
 
     return_value = ht_search(ht, NULL);
     cr_assert_stderr_eq_str("Invalid input: Search impossible!\n");
-    cr_assert_eq(return_value, 84);
+    cr_assert_eq(return_value, NULL);
     delete_hashtable(ht);
 }

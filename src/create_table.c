@@ -15,11 +15,11 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
 
     if (len <= 0) {
         my_put_error("Invalid input: length has to be strictly positive!\n");
-        return (hashtable_t *) 84;
+        return NULL;
     }
     if (!hash) {
         my_put_error("Invalid input: no hash function given!\n");
-        return (hashtable_t *) 84;
+        return NULL;
     }
     ht = malloc(sizeof(hashtable_t));
     ht->size = len;
