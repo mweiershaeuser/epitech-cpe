@@ -1,0 +1,8 @@
+add WIRE usb, ACTUATOR button
+disp
+del 1
+del 0
+disp
+add SENSOR sensor
+disp
+exit
